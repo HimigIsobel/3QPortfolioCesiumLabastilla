@@ -14,17 +14,28 @@
     <script src="script.js" defer></script>
 
     <script>
-      // Function to confirm form submission
+ 
       function confirmSubmission(event) {
-          // Show confirmation dialog
+
           const userConfirmed = confirm("Are you sure you want to submit this form?");
           
-          // If user clicks Cancel, prevent form submission
+
           if (!userConfirmed) {
               event.preventDefault(); // Stops form from submitting
               alert("Form submission canceled.");
           }
       }
+
+
+    function confirmReset(event) {
+
+      const userConfirmed = confirm("Are you sure you want to reset the form?");
+
+      // If user clicks "Cancel", prevent the reset
+      if (!userConfirmed) {
+        event.preventDefault(); // Stops the reset action
+      }
+    }
   </script>
 
    <style>
@@ -158,7 +169,7 @@
  
         <fieldset>
           <legend>Action Buttons</legend>
-          <button type="submit"> Submit </button>
+          <button type="submit"> Accept </button>
           <button type="reset">Reset </button> 
 
 
@@ -170,6 +181,7 @@
       <script>
         // Attach the confirm function to the form's onsubmit event
         document.getElementById("dForm").addEventListener("submit", confirmSubmission);
+        document.getElementById("dForm").addEventListener("reset", confirmReset);
     </script>
 
     </section>
